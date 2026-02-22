@@ -15,6 +15,9 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- icon -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     *{
         font-family: "Geist", sans-serif;
@@ -24,8 +27,8 @@
 
 </head>
 
-<body class="min-h-screen bg-gray-100 max-w-6xl mx-auto border-2 border-red-600">
-  <header class="mt-[60px] border-2 border-blue-600">
+<body class="min-h-screen bg-gray-100 max-w-6xl mx-auto">
+  <header class="pt-[60px]">
     <div class="rounded-lg">
       <h1 class="text-3xl font-bold mb-5">
         Job Application Tracker
@@ -52,17 +55,31 @@
     </div>
   </header>
 
-  <section id="available-jobs" class="mt-[60px]">
-    <h3 class="font-semibold text-2xl mb-[24px]">Available Jobs</h3>
-    <div role="tablist" class="tabs tabs-border gap-7 mb-4">
-        <a role="tab" class="tab btn btn-soft font-medium text-3 ">All</a>
-        <a role="tab" class="tab btn btn-soft font-medium text-3 ">Interview</a>
-        <a role="tab" class="tab btn btn-soft font-medium text-3">Rejected</a>
-    </div>
+  <section id="jobs-info" class="mb-4">
     <div>
+        <div class="flex justify-between">
+          <h3 class="font-semibold text-2xl mb-[24px] pt-6">Available Jobs
+          </h3>
+          <p class="text-gray-500 font-medium pr-2 pt-6">8 jobs</p>
+        </div>
+        <div id="btn-options" class="tab gap-7 ">
+            <button id="btn-all" onclick="showOnly('jobs-card',this)" class="tab btn btn-primary hover:text-white font-medium text-4 tab-active">All</button>
+            <button id="btn-interview" onclick="showOnly('interview-section',this)" class="tab btn  hover:text-white font-medium text-4">Interview</button>
+            <button id="btn-rejected" onclick="showOnly('rejected-section',this)" class="tab btn  hover:text-white font-medium text-4">Rejected</button>     
+        </div>
+    </div>
+  </section>
+ 
+
+
+
+  <section id="jobs-card" class="space-y-4  mb-10 ">
         <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
             <div class="card-body">
-                <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
                 <p class="text-gray-500 leading-5">React Native Developer</p>
                 <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
                 <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
@@ -73,7 +90,149 @@
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">WebFlow Agency</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">Web Designer & Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
+                </p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">DataViz Solutions</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">Data Visualization Specialist</p>
+                <p class="text-gray-500 leading-5 py-4">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+                </p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">React Native Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">React Native Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">React Native Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">React Native Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-full shadow-sm rounded-[8px]">
+            <div class="card-body">
+                <div class="flex justify-between">
+                  <h3 class="card-title text[20px] font-semibold">Mobile First Corp</h3>
+                  <button><i class="fa-solid fa-trash btn self-start pt-3"></i></button>
+                </div>
+                <p class="text-gray-500 leading-5">React Native Developer</p>
+                <p class="text-gray-500 leading-5 py-4">Remote • Full-time • $130,000 - $175,000</p>
+                <span class="bg-sky-100 py-1 px-3 rounded  text-xs self-start pb-2">Not Applied</span>
+                <p class="text-gray-500 leading-5 py-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <div class="card-actions justify-start">
+                    <button class="btn btn-outline btn-success text-green-600 hover:text-white">Interview</button>
+                    <button class="btn btn-outline btn-error text-red-600 hover:text-white">Rejected</button>
+                </div>
+            </div>
+        </div>
   </section>
+
+  <section id="interview-section" class="card card-border bg-base-100 w-full mb-8 shadow-sm hidden">
+      <div class="card-body flex flex-col items-center text-center gap-4 py-15">
+        <img src="assets/jobs.png" width="100px" alt="">
+        <h2 class="card-title text-xl font-bold">No jobs available</h2>
+        <p class="text-gray-500">Check back soon for new job opportunities</p>
+      </div>
+  </section>
+
+  <section id="rejected-section" class="card card-border bg-base-100 w-full mb-8 shadow-sm hidden">
+      <div class="card-body flex flex-col items-center text-center gap-4 py-15">
+        <img src="assets/jobs.png" width="100px" alt="">
+        <h2 class="card-title text-xl font-bold">No jobs available</h2>
+        <p class="text-gray-500">Check back soon for new job opportunities</p>
+      </div>
+  </section>
+  
+
+<script src="./js/style.js"></script>
+  <script>
+
+  </script>
 </body>
 </html>
