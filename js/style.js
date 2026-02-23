@@ -23,7 +23,7 @@ function showOnly(id, clickedButton){
         const card = button.closest('.card');
         const targetSection = document.getElementById(targetSectionId);
         if (card && targetSection) {
-            targetSection.appendChild(card);
+            targetSection.prepend(card);
             refreshUIStatus();
         }
     }
@@ -68,3 +68,16 @@ function showOnly(id, clickedButton){
         if(rejectedEl) rejectedEl.innerText = rejected;
     }
     window.onload = refreshUIStatus;
+
+
+    const btn1 = document.getElementById('btn-interview');
+    btn1.addEventListener('click', function() {
+        const text1 = document.getElementById('text1');
+        if (text1) {
+            text1.classList.add('hidden');
+        }
+        const text2 = document.getElementById('text2');
+        if (text2) {
+            text2.classList.remove('hidden');
+        }
+    });

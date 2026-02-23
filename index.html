@@ -60,7 +60,10 @@
         <div class="flex justify-between">
           <h3 class="font-semibold text-2xl mb-[24px] pt-6">Available Jobs
           </h3>
-          <p class="text-gray-500 font-medium pr-2 pt-6">8 jobs</p>
+          <div>
+            <p id="text1" class=" text-gray-500 font-medium pr-2 pt-6">8 jobs</p>
+            <p id="text2" class=" text-gray-500 font-medium pr-2 pt-6 hidden"><span>0</span>/8 jobs</p>
+          </div>
         </div>
         <div id="btn-options" class="tab gap-7 ">
             <button id="btn-all" onclick="showOnly('jobs-card',this)" class="tab btn btn-primary hover:text-white font-medium text-4 tab-active">All</button>
@@ -70,7 +73,6 @@
     </div>
   </section>
  
-
 
 
   <section id="jobs-card" class="space-y-4  mb-10 ">
@@ -232,15 +234,5 @@
   </section>
   
 <script src="./js/style.js"></script>
-    function checkEmpty(){
-        const interviewCards = document.getElementById('interview-section').children.length;
-     //console.log(interviewSection);
-     if(interviewCards>1){
-      document.getElementById('no-jobs-card').classList.add('hidden');
-     }else {
-    document.getElementById('no-jobs-card').classList.remove('hidden');
-}
-    }
-  </script> -->
 </body>
 </html>
